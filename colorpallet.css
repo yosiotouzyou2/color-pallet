@@ -1,0 +1,239 @@
+html,body{
+    margin: 0;
+    padding: 0;
+}
+
+#topBanner {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(135deg, #fff8b3, #ffe066); /* ← 黄色系に変更 */
+  color: #333333;
+  padding: 8px 0;
+  font-size: 14px;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #ccc;
+  font-family: 'Yomogi', 'Kosugi Maru', sans-serif;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+
+/*光のアニメーション*/
+#topBanner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 150%;
+  height: 100%;
+  background: linear-gradient(
+  120deg,
+  transparent 0%,
+    rgba(255, 255, 255, 0.3) 45%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.3) 55%,
+  transparent 100%
+);
+  transform: skewX(-30deg);
+  animation: shine 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes shine {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/*以下ツールのボタン*/
+.toolBtn {
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #e0f7f3 0%, #a0ede0 100%); /* ミント系のグラデーション */
+  color: #1a4c45; /* 読みやすい深緑 */
+  box-shadow: 0 6px 12px rgba(160, 237, 224, 0.4); /* 淡い緑の影 */
+  transition: filter 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  margin-right: 10px;
+}
+
+.toolBtn:hover {
+  background: linear-gradient(135deg, #b3f0e6 0%, #6ed7c3 100%);
+  box-shadow: 0 8px 16px rgba(110, 215, 195, 0.6);
+  color: #103b35;
+}
+
+/*以下ツールの説明の文字*/
+.toolLetter {
+  font-size: 16px;
+  color: #1a4c45;
+  font-weight: 600;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.palette-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+#paletteContainer {
+  display: flex;
+  flex-direction: column; /* セクション（グループ）を縦に並べる */
+  gap: 32px;              /* セクション間のスペース */
+}
+
+
+.color-palette {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 8px;
+  width: 250px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.color-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.color-info {
+  flex: 1;
+}
+
+.color-name {
+  font-weight: bold;
+}
+
+.copy-btn {
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #333;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+.toast.show {
+  opacity: 1;
+}
+
+.palette-section {
+  margin-bottom: 32px;
+}
+
+.palette-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.copy-btn {
+  background-color: #222222;
+  color: #f0f0f0;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(50, 50, 50, 0.7);
+  user-select: none;
+}
+
+.copy-btn:hover {
+  background-color: #444444;
+  box-shadow: 0 4px 8px rgba(70, 70, 70, 0.9);
+}
+
+.copy-btn:active {
+  background-color: #111111;
+  box-shadow: 0 1px 3px rgba(30, 30, 30, 1);
+  transform: translateY(1px);
+}
+
+.letter{
+  margin-top:15px;
+  color: #000000;
+  font-weight: 600;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.fav-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.3s ease;
+  user-select: none;
+  padding: 0 6px;
+}
+
+.fav-btn:hover {
+  color: #e25555;
+}
+
+.fav-btn.active {
+  color: #e25555;
+  text-shadow: 0 0 6px #e25555aa;
+}
+
+.favorite-btn {
+  padding: 4px 8px;
+  margin-left: 6px;
+  border: none;
+  border-radius: 4px;
+  background-color: #444;
+  color: white;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background-color 0.2s;
+}
+
+.favorite-btn:hover {
+  background-color: #666;
+}
+
+.favorite-btn:active {
+  background-color: #222;
+}
+
+.remove-btn {
+  background-color: crimson;
+}
+
+.remove-btn:hover {
+  background-color: rgb(200, 0, 50);
+}
+
+.remove-btn:active {
+  background-color: rgb(150, 0, 30);
+}
